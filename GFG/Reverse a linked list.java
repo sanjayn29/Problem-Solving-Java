@@ -1,4 +1,4 @@
-/*
+/* Structure of Linked List Node
 class Node {
     int data;
     Node next;
@@ -9,17 +9,20 @@ class Node {
     }
 }
 */
+
 class Solution {
     Node reverseList(Node head) {
         // code here
-        Node prev = null;
-        Node curr = head;
-        while(curr != null){
-            Node next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
+        Node temp1 = null;
+        Node temp2 = null;
+        
+        while(head!=null){
+            temp2=head.next;
+            head.next=temp1;
+            temp1=head;
+            head=temp2;
         }
-        return prev;
+        head = temp1;
+        return head;
     }
 }
